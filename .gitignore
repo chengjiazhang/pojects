@@ -1,4 +1,4 @@
-*.DS_Stone
+.DS_Store
 # Prerequisites
 *.d
 
