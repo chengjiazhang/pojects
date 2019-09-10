@@ -1,0 +1,116 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    font-family: PingFangSC-Semibold;
+}
+
+.bd {
+    width: 860px;
+    margin: auto;
+    background: #FFFFFF;
+    box-shadow: 0 15px 20px 23px rgba(0, 0, 0, 0.12);
+    height: 1200px;
+}
+
+.main {
+    margin: 29px auto;
+    width: 700px;
+    height: 1100px;
+}
+
+header {
+    width: 700px;
+    height: 102px;
+    padding-top: 40px;
+    border-bottom: 3px solid#DADADA;
+}
+
+header #d1 {
+    font-size: 30px;
+    color: #4A4A4A;
+    letter-spacing: 3px;
+}
+
+header #d1+li {
+    font-size: 20px;
+    color: #9B9B9B;
+    letter-spacing: 2px;
+    margin-top: 12px;
+}
+
+#d2 {
+    font-size: 16px;
+    color: #9B9B9B;
+    letter-spacing: 0.8px;
+    text-align: justify;
+    float: right;
+    margin-top: -75px;
+    line-height: 40px;
+    text-align: right;
+    margin-right: 10px;
+}
+
+.main-left {
+    float: left;
+    width: 400px;
+    height: 1000px;
+    margin-top: 36px;
+}
+
+h1 {
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 2px;
+    line-height: 33px;
+    background-color: #F2F2F2;
+}
+
+.left-bottom>ul>li:nth-child(3n+1), .main-right>h1:first-child+ul>li:nth-child(2n+1), #h1+ul>li:nth-child(3n+1) {
+    font-size: 16px;
+    color: #4A4A4A;
+    letter-spacing: 0.8px;
+    text-align: justify;
+}
+
+p, .left-bottom>ul>li:nth-child(3n+2), .main-right>h1:first-child+ul>li:nth-child(2n+2), #h1+ul>li:nth-child(3n+2), #h1+ul>li:nth-child(3n+3) {
+    font-size: 16px;
+    color: #9B9B9B;
+    letter-spacing: 0.8px;
+    text-align: justify;
+}
+
+.main-right {
+    width: 220px;
+    height: 540px;
+    float: right;
+    margin-top: 50px;
+}
+
+.left-bottom {
+    margin-top: 66px;
+}
+
+ul p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#h1 {
+    margin-top: 40px;
+}
+
+#h1+ul, .main-right>h1:first-child+ul>li:nth-child(2n+1), #h1+ul>li:nth-child(3n+1) {
+    line-height: 2em;
+    margin-top: 20px;
+}
+
+header+img {
+    float: right;
+    margin-top: 36px;
+    margin-right: 43px;
+}
+
+#d2 img {
+    margin-left: 22.4px;
+}
