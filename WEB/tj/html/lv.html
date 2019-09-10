@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/lv.css">
+    <!-- <script text="text/javascript" src="../js/lv.js"></script> -->
+</head>
+<body>
+        <script>
+                //获取屏幕宽高
+                var windowWidth = window.screen.width;
+                var windowHeight = window.screen.height;
+         
+                //创建雪花
+                function createSnow(){
+                    var left = 0;
+                    var top = 0;
+         
+                    //定义一个初始化随机数,使雪花在屏幕中
+                    var left_random = Math.random() * windowWidth;
+                    var top_random = Math.random()* windowHeight;
+                    var div = document.createElement('div');
+                    div.className = 'snow';
+                    div.style.transform = 'scale('+(Math.random())+')'
+         
+                    document.body.appendChild(div);
+         
+                    //雪花飘落
+                    setInterval(function () {
+         
+                        div.style.left = left_random + left +'px';
+                        div.style.top = top_random + top +'px'
+                        left += 0.2;
+                        top += 0.2;
+         
+                        //如果雪花跑到屏幕外面了,让雪花重新返回屏幕顶部
+                        if(left_random + left >= windowWidth){
+                            left_random = Math.random();
+                            left = 0;
+                        }
+         
+                        if(top_random + top >= windowHeight){
+                            top_random = Math.random();
+                            top = 0;
+                        }
+                    },10)
+         
+                }
+                for(var i = 0 ; i < 200 ; i++){
+                    createSnow()
+                }
+            </script>
+
+    <div class="bd">
+    <div class="main ">
+        
+<header>
+<h1>桐桐&佳佳</h1>
+
+
+</header>
+<div class="main-left">
+        
+    
+    
+    <p id="p1">牵你的手，朝朝暮暮，<br>
+            牵你的手，等待明天，<br>
+            牵你的手，走过今生，<br>
+            牵你的手，生生世世。<br>
+            <br>在爱情的世界里,我一无所有,也一无所知,<br>
+            在情感的小站里,我愿你是第一位来客,<br>
+            也是永远的主人,伴着我宠着我;<br>
+            一生一世!
+            </p>  
+
+    <img src="../img/m.gif" alt=""> 
+
+    <audio  autoplay controls loop muted>
+            <source src="../img/wsl.mp3" type='audio/ogg'>
+            </audio> 
+
+</div>
+
+
+<div class="main-right">
+
+
+
+
+
+
+</div>
+
+
+
+
+
+    </div>
+    </div>
+</body>
+</html>

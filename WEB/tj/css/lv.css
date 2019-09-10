@@ -1,0 +1,342 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.bd {
+    width: 1200px;
+    margin: auto;
+    /* background-color:black; */
+}
+
+.main {
+    width: 1000px;
+    height: 800px;
+    /* background-color: aqua; */
+    margin: auto;
+    background-color: black;
+}
+
+header {
+    width: 1000px;
+    height: 150px;
+    /* background-color: green; */
+    float: top;
+    background: url(../img/11.jpg);
+}
+
+p {
+    margin-top: 10px;
+    font-family: 翩翩体-简;
+    font-size: 19px;
+}
+
+h1 {
+    text-align: center;
+    color: pink;
+    padding-top: 20px;
+    font-size: 100px;
+    transition: width 2s, height 2s;
+    -moz-transition: width 2s, height 2s, -moz-transform 2s;
+    /* Firefox 4 */
+    -webkit-transition: width 2s, height 2s, -webkit-transform 2s;
+    /* Safari and Chrome */
+    -o-transition: width 2s, height 2s, -o-transform 2s;
+    /* Opera */
+    font-family: 娃娃体-简;
+}
+
+h1:hover {
+    transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    /* Firefox 4 */
+    -webkit-transform: rotate(360deg);
+    /* Safari and Chrome */
+    -o-transform: rotate(360deg);
+    /* Opera */
+}
+
+.main-left {
+    float: left;
+    width: 350px;
+    height: 650px;
+    /* background-color: brown; */
+}
+
+.main-right {
+    float: right;
+    width: 630px;
+    height: 650px;
+    background-color: blueviolet;
+    background-image: url(../img/lv1.jpeg);
+    background-size: 50%;
+    animation: myfirst 10s;
+    -moz-animation: myfirst 10s infinite linear;
+    -webkit-animation: myfirst 10s infinite linear;
+    -o-animation: myfirst 10s infinite linear;
+}
+
+@keyframes myfirst {
+    0% {
+        background: url(../img/lv2.jpeg);
+        background-size: 50%;
+    }
+    30% {
+        background: url(../img/lv3.jpeg);
+        background-size: 50%;
+    }
+    50% {
+        background: url(../img/01.jpeg);
+        background-size: 50%;
+    }
+    100% {
+        background: url(../img/05.jpeg);
+        background-size: 50%;
+    }
+}
+
+@-moz-keyframes myfirst
+/* Firefox */
+
+    {
+    0% {
+        background: url(../img/lv2.jpeg);
+        background-size: 50%;
+    }
+    30% {
+        background: url(../img/lv3.jpeg);
+        background-size: 50%;
+    }
+    50% {
+        background: url(../img/01.jpeg);
+        background-size: 50%;
+    }
+    100% {
+        background: url(../img/05.jpeg);
+        background-size: 50%;
+    }
+}
+
+@-webkit-keyframes myfirst
+/* Safari and Chrome */
+
+    {
+    0% {
+        background: url(../img/lv2.jpeg);
+        background-size: 50%;
+    }
+    30% {
+        background: url(../img/lv3.jpeg);
+        background-size: 50%;
+    }
+    50% {
+        background: url(../img/01.jpeg);
+        background-size: 50%;
+    }
+    100% {
+        background: url(../img/05.jpeg);
+        background-size: 50%;
+    }
+}
+
+@-o-keyframes myfirst
+/* Opera */
+
+    {
+    0% {
+        background: url(../img/lv2.jpeg);
+        background-size: 50%;
+    }
+    30% {
+        background: url(../img/lv3.jpeg);
+        background-size: 50%;
+    }
+    50% {
+        background: url(../img/01.jpeg);
+        background-size: 50%;
+    }
+    100% {
+        background: url(../img/05.jpeg);
+        background-size: 50%;
+    }
+}
+
+#p1 {
+    text-align: center;
+    padding-top: 20px;
+    background: linear-gradient(left, pink, white);
+    background: -webkit-linear-gradient(left, pink,white);
+    background: -o-linear-gradient(right,white,pink);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: scratchy 1s linear forwards infinite;
+    /* 其它浏览器兼容性前缀 */
+    -webkit-animation: scratchy 3s linear forwards infinite;
+    -moz-animation: scratchy 3s linear forwards infinite;
+    -ms-animation: scratchy 3s linear forwards infinite;
+    -o-animation: scratchy 3s linear forwards infinite;
+    
+}
+@keyframes  scratchy {
+    0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: 0 0;
+    }
+    26% {
+        background-position: 20px -20px;
+    }
+    50% {
+        background-position: 20px -20px;
+    }
+    51% {
+        background-position: 40px -40px;
+    }
+    75% {
+        background-position: 40px -40px;
+    }
+    76% {
+        background-position: 60px -60px;
+    }
+    99% {
+        background-position: 60px -60px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+/* 添加兼容性前缀 */
+@-webkit-keyframes scratchy {
+    0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: 0 0;
+    }
+    26% {
+        background-position: 20px -20px;
+    }
+    50% {
+        background-position: 20px -20px;
+    }
+    51% {
+        background-position: 40px -40px;
+    }
+    75% {
+        background-position: 40px -40px;
+    }
+    76% {
+        background-position: 60px -60px;
+    }
+    99% {
+        background-position: 60px -60px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+@-moz-keyframes scratchy {
+    0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: 0 0;
+    }
+    26% {
+        background-position: 20px -20px;
+    }
+    50% {
+        background-position: 20px -20px;
+    }
+    51% {
+        background-position: 40px -40px;
+    }
+    75% {
+        background-position: 40px -40px;
+    }
+    76% {
+        background-position: 60px -60px;
+    }
+    99% {
+        background-position: 60px -60px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+@-ms-keyframes scratchy {
+   0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: 0 0;
+    }
+    26% {
+        background-position: 20px -20px;
+    }
+    50% {
+        background-position: 20px -20px;
+    }
+    51% {
+        background-position: 40px -40px;
+    }
+    75% {
+        background-position: 40px -40px;
+    }
+    76% {
+        background-position: 60px -60px;
+    }
+    99% {
+        background-position: 60px -60px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+@-o-keyframes scratchy {
+   0% {
+        background-position: 0 0;
+    }
+    25% {
+        background-position: 0 0;
+    }
+    26% {
+        background-position: 20px -20px;
+    }
+    50% {
+        background-position: 20px -20px;
+    }
+    51% {
+        background-position: 40px -40px;
+    }
+    75% {
+        background-position: 40px -40px;
+    }
+    76% {
+        background-position: 60px -60px;
+    }
+    99% {
+        background-position: 60px -60px;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+#p1+img {
+    padding-top: 30px;
+    padding-left: 60px;
+    
+}
+
+.snow{
+    background: white;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+audio{ 
+    padding-top:50px;
+}
