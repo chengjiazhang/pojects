@@ -27,7 +27,7 @@ header {
 
 p {
     margin-top: 10px;
-    font-family: 翩翩体-简;
+    font-family: Hanzipen SC;
     font-size: 19px;
 }
 
@@ -43,7 +43,7 @@ h1 {
     /* Safari and Chrome */
     -o-transition: width 2s, height 2s, -o-transform 2s;
     /* Opera */
-    font-family: 娃娃体-简;
+    font-family: Wawati SC;
 }
 
 h1:hover {
