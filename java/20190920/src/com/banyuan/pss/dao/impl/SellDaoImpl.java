@@ -68,9 +68,9 @@ public class SellDaoImpl implements SellDao
 	{
 		
 
-		String sql = "insert into returnsale select * from sale where Commodityid=?";
+		String sql = "insert into resale(commodityname,commodityid,selltime,number,money,operator,saleid) select distinct commodityname,commodityid,selltime,number,money,operator,saleid from sale where Commodityid=?";
 
-		jdbcutil.modify(sql, sell.getCommodityid());
+		jdbcutil.modify(sql, sell.getCommodityid());//commodityname,commodityid,selltime,number,money,operator,saleid
 		
 	}
 

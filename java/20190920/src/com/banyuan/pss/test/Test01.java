@@ -36,11 +36,16 @@ public class Test01
 //		
 		Sell sell = new Sell();
 		sell.setCommodityid(2);
+		
 		Vector v2 = service.getDataById(sell);
-		//System.out.println(sell);
+		System.out.println(sell);
+		
 		System.out.println("v2=" + v2);
-
+System.out.println((Vector)v2.get(7));
 		service.insertData(sell);
+		//Vector sell = new Vector();
+
+//		service.insertData(sell);
 
 //		
 //		System.out.println("*******************************");

@@ -7,15 +7,21 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 import java.util.Vector;
-import java.util.regex.Pattern;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -34,7 +40,7 @@ import com.banyuan.pss.util.MyFactory;
  *
  *      下午3:36:54
  */
-public class SellFrame extends JFrame
+public class ReSellFrame extends JFrame
 {
 
 	SellService service = (SellService) MyFactory.getInstance("sellService");
@@ -62,7 +68,7 @@ public class SellFrame extends JFrame
 			{
 				try
 				{
-					SellFrame frame = new SellFrame();
+					ReSellFrame frame = new ReSellFrame();
 					frame.setVisible(true);
 				} catch (Exception e)
 				{
@@ -75,7 +81,7 @@ public class SellFrame extends JFrame
 	/**
 	 * Create the frame.
 	 */
-	public SellFrame()
+	public ReSellFrame()
 	{
 		System.out.println("==SellFrame()===");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -188,7 +194,6 @@ public class SellFrame extends JFrame
 
 		Sell sell = new Sell();
 		JButton btn_Add = new JButton("添加");
-
 		btn_Add.addActionListener(new ActionListener()
 		{
 //			int j = 0;
@@ -196,59 +201,46 @@ public class SellFrame extends JFrame
 //			double sum = 0;
 
 			// int sum2=0;
-			int i = 0;
-
+			//int i=0;
 			public void actionPerformed(ActionEvent e)
 			{
+				sell.setCommodityid(Integer.valueOf(tf_ComId.getText()));
 
-				String tf = tf_ComId.getText();
-
-				if (tf.trim().length() == 0)
-				{
-					String message = "请不要非空";
-					JOptionPane.showMessageDialog(null, message);// 输入空格或无输入弹出提示框
-				} else
-				{
-					boolean flag = tf.matches("\\d{1,10}");// 匹配输入字符是否是数字
-					if (!flag)
-					{
-						String message = "请输入数字";
-						JOptionPane.showMessageDialog(null, message);// 输入不是数字会弹出提示框
-					} else
-					{
-						sell.setCommodityid(Integer.valueOf(tf_ComId.getText()));
-						Vector v5 = service.getDataById(sell);
-						v5 = (Vector) v5.get(0);
-						System.out.println("v5.get(3);" + v5.get(3));
-
-						v5.set(6, i++);
-						tf_Operator.setText((String)v5.get(5));
-						data.add(v5);
-
-						tm.setDataVector(data, colname);
-						System.out.println("==" + v5.get(4) + "==");
-
-						float sum = 0;
-						int sum2 = 0;
-						for (Object obj : data)
-						{
-							Vector v = (Vector) obj;
-							sum += (double) v.get(4) * Integer.parseInt((String) v.get(3));
-							sum2 += Integer.parseInt((String) v.get(3));
-						}
-						System.out.println("sum=" + sum);
-						System.out.println("sum2=" + sum2);
-
-						lbl_Money.setText(Double.toString(sum));
-						lbl_Num.setText(Integer.toString(sum2));
-					}
+				Vector v5 = service.getDataById(sell);
+				v5 = (Vector) v5.get(0);
+						System.out.println("v5.get(3);"+v5.get(3));		
+				if(tf_ComId.getText()==v5.get(1)) {
+					Object obj=v5.get(3);
+					int i=Integer.parseInt((String)v.get(3));
+					v5.set(3,2);
 				}
+				data.add(v5);
+				
+				
+				tm.setDataVector(data, colname);
+				System.out.println("=="+v5.get(4)+"==");
+				//System.out.println("1=="+tf_ComId.getText());
+				float sum = 0;
+				int sum2=0;
+				for(Object obj : data) {
+					Vector v = (Vector)obj;
+					sum += (double)v.get(4)*Integer.parseInt((String)v.get(3));
+				sum2+=Integer.parseInt((String)v.get(3));
+				}
+				System.out.println("sum="+sum);
+				System.out.println("sum2="+sum2);
+				
+				lbl_Money.setText(Double.toString(sum));
+				lbl_Num.setText(Integer.toString(sum2));
+				
+
+
 			}
 		});
 		btn_Add.setBounds(28, 82, 117, 29);
 		panel_1.add(btn_Add);
 
-		JButton btn_SellAll = new JButton("销售");
+		JButton btn_SellAll = new JButton("退货");
 		btn_SellAll.addActionListener(new ActionListener()
 		{
 
@@ -267,13 +259,14 @@ public class SellFrame extends JFrame
 		btn_SellAll.setBounds(193, 82, 117, 29);
 		panel_1.add(btn_SellAll);
 
-		JButton btn_DelSellAll = new JButton("取消销售");
+		JButton btn_DelSellAll = new JButton("取消退货");
 		btn_DelSellAll.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e)
 			{
-				data = new Vector();
+				data=new Vector();
 				tm.setDataVector(data, colname);
+
 
 			}
 		});
