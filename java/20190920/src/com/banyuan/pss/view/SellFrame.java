@@ -26,6 +26,7 @@ import javax.swing.table.DefaultTableModel;
 import com.banyuan.pss.entity.Sell;
 import com.banyuan.pss.service.SellService;
 import com.banyuan.pss.util.MyFactory;
+import javax.swing.JComboBox;
 
 /**
  * @zcj
@@ -40,7 +41,6 @@ public class SellFrame extends JFrame
 	SellService service = (SellService) MyFactory.getInstance("sellService");
 	private JPanel contentPane;
 	private JTextField tf_ComId;
-	private JTextField tf_Buy;
 	private JTextField tf_Operator;
 	private JTable table;
 	private DefaultTableModel tm;
@@ -144,13 +144,8 @@ public class SellFrame extends JFrame
 		label.setBounds(145, 6, 61, 16);
 		panel_1.add(label);
 
-		tf_Buy = new JTextField();
-		tf_Buy.setBounds(206, 1, 61, 26);
-		panel_1.add(tf_Buy);
-		tf_Buy.setColumns(10);
-
 		JLabel lblNewLabel_1 = new JLabel("销售时间");
-		lblNewLabel_1.setBounds(293, 6, 61, 16);
+		lblNewLabel_1.setBounds(317, 6, 61, 16);
 		panel_1.add(lblNewLabel_1);
 
 		JLabel label_1 = new JLabel("销售员");
@@ -222,7 +217,7 @@ public class SellFrame extends JFrame
 						System.out.println("v5.get(3);" + v5.get(3));
 
 						v5.set(6, i++);
-						tf_Operator.setText((String)v5.get(5));
+						tf_Operator.setText((String) v5.get(5));
 						data.add(v5);
 
 						tm.setDataVector(data, colname);
@@ -281,12 +276,20 @@ public class SellFrame extends JFrame
 		panel_1.add(btn_DelSellAll);
 
 		JLabel lbl_Date = new JLabel("");
-		lbl_Date.setBounds(366, 6, 153, 16);
+		lbl_Date.setBounds(390, 6, 153, 16);
 		panel_1.add(lbl_Date);
 		Date date = new Date(System.currentTimeMillis());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String datestr = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
 		lbl_Date.setText(datestr);
+
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(202, 2, 103, 27);
+		comboBox.addItem("现金");
+		comboBox.addItem("支付宝");
+		comboBox.addItem("微信");
+
+		panel_1.add(comboBox);
 
 		System.out.println(datestr);
 		// 每一秒刷新下时间

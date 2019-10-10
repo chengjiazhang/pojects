@@ -30,7 +30,6 @@ public class JDBCUtil
 				ps.setObject(i + 1, args[i]);
 			}
 			ps.executeUpdate();
-			
 
 		} catch (SQLException e)
 		{
