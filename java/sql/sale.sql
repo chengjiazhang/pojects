@@ -11,7 +11,7 @@
  Target Server Version : 80011
  File Encoding         : 65001
 
- Date: 09/10/2019 19:00:17
+ Date: 10/10/2019 09:20:56
 */
 
 SET NAMES utf8mb4;
@@ -40,6 +40,8 @@ BEGIN;
 INSERT INTO `sale` VALUES ('可乐', 1, '2019-10-10 00:00:00', '1', 2, 'lilei', 1, 1);
 INSERT INTO `sale` VALUES ('雪碧', 2, '2019-10-10 00:00:00', '1', 3, 'lili', 2, 2);
 INSERT INTO `sale` VALUES ('橙汁', 3, '2019-10-10 00:00:00', '1', 3.5, 'ko', 3, 3);
+INSERT INTO `sale` VALUES ('酸奶', 4, '2019-10-10 00:00:00', '1', 5, 'zz', 4, 4);
+INSERT INTO `sale` VALUES ('运动饮料', 5, '2019-10-10 00:00:00', '1', 4, 'll', 5, 5);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
