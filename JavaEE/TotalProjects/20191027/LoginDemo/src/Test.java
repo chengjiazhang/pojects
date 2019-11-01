@@ -2,24 +2,23 @@ import java.util.Vector;
 
 public class Test {
 
-
+static Integer score;
     public static void main(String[] args) {
         Vector v=new Vector();
-        Vector line=new Vector();
-        line.add(1);
-        Vector line1=new Vector();
-        line1.add(2);
-        line1.add(3);
-        Vector line2=new Vector();
-        v.add(line);
-        v.add(line1);
-        v.add(line2);
+        v.add(1);
+        v.add(2);
+        v.add(4);
+        int i;
+        int j;
+        for(i=0;i<v.size();i++){
+            System.out.println(v.get(i));
+        if(i==1){
+            System.out.println(3);
+        }
+        }
 
-    Vector v1= (Vector) v.get(1);
-    for(int i=0;i<v1.size();i++){
-        System.out.println(v1.get(i));
+score=10;
     }
 
-    }
     }
 

@@ -16,28 +16,38 @@ import java.util.Vector;
  */
 @WebServlet("/drunkDrive")
 public class DrunkDrivingServlet extends HttpServlet {
+    int score=0;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String userName = req.getParameter("userName");
         String type = req.getParameter("type");
+        List listData = getData(userName);
+        Vector vectorScore = scoreRecord(userName, type);
+        req.setAttribute("list", listData);
+        req.setAttribute("vector", vectorScore);
 
-       Vector vectorScore= test(userName, type);
 
-        req.setAttribute("vector",vectorScore);
+        req.setAttribute("score", score);
+        // System.out.println(score);
         req.getRequestDispatcher("ScoreRecord.jsp").forward(req, resp);
     }
 
-    protected Vector test(String userName, String type) {
+    protected List getData(String userName) {
         List list = Data.getData(userName);
-        Integer score = 0;
+        return list;
+    }
+
+    protected Vector scoreRecord(String userName, String type) {
+        List list = Data.getData(userName);
         String first = "1";
         String second = "2";
 
-        String sTotalScore= (String) list.get(5);
+        String sTotalScore = (String) list.get(5);
 
-        Integer totalScore=Integer.valueOf(sTotalScore);
-        System.out.println(totalScore);
+        Integer totalScore = Integer.valueOf(sTotalScore);
+
+        //System.out.println(totalScore);
 
         if (first.equals(type)) {
             score = -3;
@@ -50,16 +60,17 @@ public class DrunkDrivingServlet extends HttpServlet {
         totalScore += score;
         Data.modifyData(totalScore, userName);
 
-        Data.insertData(userName,score,totalScore);
+        Data.insertData(userName, score, totalScore);
 
-        Vector vectorScore=Data.getScoreData(userName);
+        Vector vectorScore = Data.getScoreData(userName);
 
-        System.out.println("listScore==="+vectorScore);
+//        System.out.println("listScore===" + vectorScore);
 
-        System.out.println("userName" + userName);
-        System.out.println("totalScore===" + totalScore);
+        //System.out.println("userName" + userName);
+        //System.out.println("totalScore===" + totalScore);
 
         return vectorScore;
 
     }
+
 }
